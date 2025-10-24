@@ -2,6 +2,7 @@ package tcp
 
 import (
 	"fmt"
+	"io"
 	"net"
 )
 
@@ -28,5 +29,22 @@ func StartServer(address string) error {
 func handleConnection(conn net.Conn) {
 	defer conn.Close()
 	fmt.Printf("New connection from %s\n", conn.RemoteAddr().String())
-	// We'll implement actual handling in the next part
+	buffer := make([]byte, 1024)
+	for {
+		n, err := conn.Read(buffer)
+		if err != nil {
+			if err != io.EOF {
+				fmt.Printf("Error reading from connection: %v\n", err)
+			}
+			return
+		}
+
+		fmt.Printf("Received: %s", string(buffer[:n]))
+		
+		_, err = conn.Write(buffer[:n])
+		if err != nil {
+			fmt.Printf("Error writing to connection: %v\n", err)
+			return
+		}
+	}
 }
