@@ -27,7 +27,6 @@ func ParseRequest(data []byte) (*Request, error) {
 		return nil, fmt.Errorf("invalid request: too few lines")
 	}
 
-	// Parse request line
 	parts := strings.Split(lines[0], " ")
 	if len(parts) != 3 {
 		return nil, fmt.Errorf("invalid request line: %s", lines[0])
