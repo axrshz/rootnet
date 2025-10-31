@@ -54,5 +54,10 @@ func ParseRequest(data []byte) (*Request, error) {
 	// Set body
 	request.Body = parts[1]
 
+	bodyStart := bytes.Index(data, []byte("\r\n\r\n"))
+	if bodyStart != -1 {
+    request.Body = data[bodyStart+4:]
+}
+
 	return request, nil
 }
