@@ -5,8 +5,8 @@ import (
 	"io"
 	"net"
 
-	"github.com/axrshz/rootnet/pkg/http"
-	"github.com/axrshz/rootnet/pkg/http/status"
+	"github.com/axrshz/rootnet/http"
+	"github.com/axrshz/rootnet/http/status"
 )
 
 func main() {

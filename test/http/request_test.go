@@ -3,7 +3,7 @@ package http_test
 import (
 	"testing"
 
-	"github.com/axrshz/rootnet/pkg/http"
+	"github.com/axrshz/rootnet/http"
 )
 
 func TestParseRequest(t *testing.T) {

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/axrshz/rootnet/pkg/http/status"
+	"github.com/axrshz/rootnet/http/status"
 )
 
 type Response struct {
